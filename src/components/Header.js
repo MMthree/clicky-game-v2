@@ -8,16 +8,16 @@ const Header = props => (
             <p className="lead text-white text-center">Click an image to score a point, but don't click the same one more than once!</p>
             
             <p className="text-white text-center">Choose a difficulty:</p>
-            <button className={`btn mx-1 ${props.difficulty === "easy" ? "btn-primary" : "btn-outline-primary"}`} 
-            onClick={() => props.chooseDifficulty("easy")}>
+            <button className={`btn mx-1 ${props.difficulty === "Easy" ? "btn-primary" : "btn-outline-primary"}`} 
+            onClick={() => props.chooseDifficulty("Easy")}>
             Easy</button>
 
-            <button className={`btn mx-1 ${props.difficulty === "medium" ? "btn-primary" : "btn-outline-primary"}`} 
-            onClick={() => props.chooseDifficulty("medium")}>
+            <button className={`btn mx-1 ${props.difficulty === "Medium" ? "btn-primary" : "btn-outline-primary"}`} 
+            onClick={() => props.chooseDifficulty("Medium")}>
             Medium</button>
 
-            <button className={`btn mx-1 ${props.difficulty === "hard" ? "btn-primary" : "btn-outline-primary"}`} 
-            onClick={() => props.chooseDifficulty("hard")}>
+            <button className={`btn mx-1 ${props.difficulty === "Hard" ? "btn-primary" : "btn-outline-primary"}`} 
+            onClick={() => props.chooseDifficulty("Hard")}>
             Hard</button>
 
         </div>

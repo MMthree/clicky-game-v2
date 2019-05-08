@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
 import Easy from "./easy.json";
+import Medium from "./medium.json";
+
 import Navbar from "./components/Navbar";
 import Header from "./components/Header";
 import Card from "./components/Card";
@@ -12,10 +14,20 @@ class App extends Component {
     highScore: 3,
     message: "",
     difficulty: "",
-    gameData: Easy,
+    gameData: "",
   }
 
   chooseDifficulty = mode => {
+    if (mode === "Easy") {
+      this.setState({ gameData: Easy })
+    }
+    if (mode === "Medium") {
+      this.setState({ gameData: Medium })
+    }
+    // if (mode === "Hard") {
+    //   this.setState({ gameData: Hard })
+    // }
+
     this.setState({ difficulty: mode});
   };
 
@@ -40,7 +52,7 @@ class App extends Component {
       
       <div className="container">
         <div className="row">
-          {this.state.gameData.map(data => { 
+          {this.state.gameData && this.state.gameData.map(data => { 
             return(
               <Card 
               image={data.image}
