@@ -1,34 +1,34 @@
 [
     {
-        "id": 1,
-        "image": "/images/boo.jpg"
+        "id": "army",
+        "image": "/images/medium/army.jpg"
     },
     {
-        "id": 2,
-        "image": "/images/sulley.jpg"
+        "id": "buzz",
+        "image": "/images/medium/buzz.jpg"
     },
     {
-        "id": 3,
-        "image": "/images/mike.jpg"
+        "id": "hamm",
+        "image": "/images/medium/hamm.jpg"
     },
     {
-        "id": 4,
-        "image": "/images/randall.jpg"
+        "id": "jessie",
+        "image": "/images/medium/jessie.jpg"
     },
     {
-        "id": 1,
-        "image": "/images/boo.jpg"
+        "id": "potato",
+        "image": "/images/medium/potato.jpg"
     },
     {
-        "id": 2,
-        "image": "/images/sulley.jpg"
+        "id": "rex",
+        "image": "/images/medium/rex.jpg"
     },
     {
-        "id": 3,
-        "image": "/images/mike.jpg"
+        "id": "slinky",
+        "image": "/images/medium/slinky.jpg"
     },
     {
-        "id": 4,
-        "image": "/images/randall.jpg"
+        "id": "woody",
+        "image": "/images/medium/woody.jpg"
     }
 ]

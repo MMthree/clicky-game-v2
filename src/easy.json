@@ -1,18 +1,18 @@
 [
     {
-        "id": 1,
-        "image": "/images/boo.jpg"
+        "id": "boo",
+        "image": "/images/easy/boo.jpg"
     },
     {
-        "id": 2,
-        "image": "/images/sulley.jpg"
+        "id": "sulley",
+        "image": "/images/easy/sulley.jpg"
     },
     {
-        "id": 3,
-        "image": "/images/mike.jpg"
+        "id": "mike",
+        "image": "/images/easy/mike.jpg"
     },
     {
-        "id": 4,
-        "image": "/images/randall.jpg"
+        "id": "randall",
+        "image": "/images/easy/randall.jpg"
     }
 ]
