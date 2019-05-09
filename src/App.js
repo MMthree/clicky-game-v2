@@ -12,21 +12,40 @@ class App extends Component {
   state={
     currentScore: 0,
     highScore: 0,
+    easyHS: 0,
+    mediumHS: 0,
+    hardHS: 0,
     message: "",
     difficulty: "",
     gameData: "",
     selectedImages: [],
+    classAnimation: "",
   }
 
   chooseDifficulty = mode => {
     if (mode === "Easy") {
-      this.setState({ gameData: Easy })
+      this.setState({ 
+        currentScore: 0,
+        gameData: Easy, 
+        message: "",
+        highScore: this.state.easyHS
+      })
     }
     if (mode === "Medium") {
-      this.setState({ gameData: Medium })
+      this.setState({ 
+        currentScore: 0,
+        gameData: Medium,
+        message: "",
+        highScore: this.state.mediumHS
+      })
     }
     if (mode === "Hard") {
-      this.setState({ gameData: Hard })
+      this.setState({ 
+        currentScore: 0,
+        gameData: Hard,
+        message: "",
+        highScore: this.state.hardHS
+      })
     }
 
     this.setState({ 
@@ -45,47 +64,30 @@ class App extends Component {
   }
 
   game = id => {
-
-  
     const find = this.state.selectedImages.find(pic => pic === id);
-
-    
 
     if ( id === find) {
       this.setState({ 
+        highScore: (this.state.currentScore > this.state.highScore) ? this.state.currentScore : this.state.highScore,
         currentScore: 0,
         message: "Game over",
+        classAnimation: "",
         selectedImages: [],
       });
-      console.log(find)
-      console.log("no");
     } else {
       this.setState({ 
         currentScore: this.state.currentScore +1,
         message: "Correct!",
+        classAnimation: "bounce",
         selectedImages: [...this.state.selectedImages, id],
-        highScore: (this.state.currentScore > this.state.highScore) ? this.state.currentScore : this.state.highScore,
       });
-      console.log("yes");
-      console.log(this.state.selectedImages)
     }
-    // if (id != find) {
-    //   this.setState({
-    //     selectedImages: push,
-    //     message: "Correct!",
-    //     currentScore: +1,
-    //   })
-    // } if (id === find) {
-    //   this.setState({
-    //     messsage: "Game Over",
-    //     currentScore: 0,
-    //     highScore: (this.state.currentScore > this.state.highScore) ? this.state.currentScore : this.state.highScore,
-    //   });
-    // }
-
+    console.log(this.state.highScore)
     this.shuffle(this.state.gameData);
+    setTimeout(() => {
+      this.setState({ classAnimation: "" });
+    }, 700);
   };
-
 
   render() {
   return (
@@ -101,8 +103,8 @@ class App extends Component {
       difficulty={this.state.difficulty}
       />
       
-      <div className="text-center">
-        <h1>{this.state.message}</h1>
+      <div className={`text-center ${this.state.classAnimation}`}>
+          <h3 className="answer">{this.state.message}</h3>
       </div>
       
       <div className={`container ${this.state.message === "Game over" ? 'game-over' : ''}`}>
