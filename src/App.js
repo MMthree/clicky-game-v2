@@ -15,6 +15,7 @@ class App extends Component {
     message: "",
     difficulty: "",
     gameData: "",
+    selectedImages: [],
   }
 
   chooseDifficulty = mode => {
@@ -28,7 +29,10 @@ class App extends Component {
       this.setState({ gameData: Hard })
     }
 
-    this.setState({ difficulty: mode});
+    this.setState({ 
+      difficulty: mode,
+      selectedImages: [],
+    });
   };
 
   shuffle = a => {
@@ -41,16 +45,43 @@ class App extends Component {
   }
 
   game = id => {
-    console.log(id)
-    const find = this.state.gameData.find(pic => (pic.id === id));
 
-    if (find === undefined) {
-      this.setState({
-        messsage: "Game Over",
+  
+    const find = this.state.selectedImages.find(pic => pic === id);
+
+    
+
+    if ( id === find) {
+      this.setState({ 
         currentScore: 0,
+        message: "Game over",
+        selectedImages: [],
+      });
+      console.log(find)
+      console.log("no");
+    } else {
+      this.setState({ 
+        currentScore: this.state.currentScore +1,
+        message: "Correct!",
+        selectedImages: [...this.state.selectedImages, id],
         highScore: (this.state.currentScore > this.state.highScore) ? this.state.currentScore : this.state.highScore,
-      })
-    } 
+      });
+      console.log("yes");
+      console.log(this.state.selectedImages)
+    }
+    // if (id != find) {
+    //   this.setState({
+    //     selectedImages: push,
+    //     message: "Correct!",
+    //     currentScore: +1,
+    //   })
+    // } if (id === find) {
+    //   this.setState({
+    //     messsage: "Game Over",
+    //     currentScore: 0,
+    //     highScore: (this.state.currentScore > this.state.highScore) ? this.state.currentScore : this.state.highScore,
+    //   });
+    // }
 
     this.shuffle(this.state.gameData);
   };
@@ -70,11 +101,11 @@ class App extends Component {
       difficulty={this.state.difficulty}
       />
       
-      <div className="row">
+      <div className="text-center">
         <h1>{this.state.message}</h1>
       </div>
       
-      <div className="container">
+      <div className={`container ${this.state.message === "Game over" ? 'game-over' : ''}`}>
         <div className="row">
           {this.state.gameData && this.state.gameData.map(data => { 
             return(
