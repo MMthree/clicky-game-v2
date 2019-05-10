@@ -1,7 +1,7 @@
 import React from "react";
 
 const Header = props => (
-    <div className="jumbotron jumbotron-fluid">
+    <div className="my-5 py-2">
         <div className="mt-4 container">
             <h1 className="display-4 text-center text-dark">CLICKY</h1>
             <h1 className="display-5 text-center text-dark">MEMORY GAME</h1>

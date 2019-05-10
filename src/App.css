@@ -1,13 +1,9 @@
 body {
-  background-color: #fff;
+    background-image: url(/images/geometry.png);
 }
 
 .App {
   text-align: center;
-}
-
-.jumbotron {
-  background-image: url(/images/geometry.png);
 }
 
 img {
@@ -78,4 +74,3 @@ img:hover {
     transform: translate3d(0, -4px, 0);
   }
 }
-

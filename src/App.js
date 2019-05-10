@@ -6,15 +6,16 @@ import Hard from "./hard.json"
 import Navbar from "./components/Navbar";
 import Header from "./components/Header";
 import Card from "./components/Card";
+import Footer from "./components/Footer";
 
 
 class App extends Component {
-  state={
+  state={    
+    EasyScore: 0,
+    MediumScore: 0,
+    HardScore: 0,
     currentScore: 0,
     highScore: 0,
-    easyHS: 0,
-    mediumHS: 0,
-    hardHS: 0,
     message: "",
     difficulty: "",
     gameData: "",
@@ -22,13 +23,14 @@ class App extends Component {
     classAnimation: "",
   }
 
+  // Clicking the difficulty buttons will display the appropriate game mode images and reset the score
   chooseDifficulty = mode => {
     if (mode === "Easy") {
       this.setState({ 
         currentScore: 0,
         gameData: Easy, 
         message: "",
-        highScore: this.state.easyHS
+        highScore: this.state.EasyScore
       })
     }
     if (mode === "Medium") {
@@ -36,7 +38,7 @@ class App extends Component {
         currentScore: 0,
         gameData: Medium,
         message: "",
-        highScore: this.state.mediumHS
+        highScore: this.state.MediumScore
       })
     }
     if (mode === "Hard") {
@@ -44,16 +46,16 @@ class App extends Component {
         currentScore: 0,
         gameData: Hard,
         message: "",
-        highScore: this.state.hardHS
+        highScore: this.state.HardScore
       })
     }
-
     this.setState({ 
       difficulty: mode,
       selectedImages: [],
     });
   };
 
+  // Shuffle the order of the json images
   shuffle = a => {
     for (let i = a.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
@@ -63,17 +65,33 @@ class App extends Component {
     
   }
 
+
   game = id => {
     const find = this.state.selectedImages.find(pic => pic === id);
 
     if ( id === find) {
       this.setState({ 
-        highScore: (this.state.currentScore > this.state.highScore) ? this.state.currentScore : this.state.highScore,
         currentScore: 0,
         message: "Game over",
         classAnimation: "",
         selectedImages: [],
       });
+
+      if (this.state.difficulty === "Easy") {
+        this.setState({ 
+          EasyScore: (this.state.currentScore > this.state.EasyScore) ? this.state.currentScore : this.state.EasyScore,
+        })
+      }
+      if (this.state.difficulty === "Medium") {
+        this.setState({ 
+          MediumScore: (this.state.currentScore > this.state.MediumScore) ? this.state.currentScore : this.state.MediumScore,
+        })
+      }
+      if (this.state.difficulty === "Hard") {
+        this.setState({ 
+          HardScore: (this.state.currentScore > this.state.HardScore) ? this.state.currentScore : this.state.HardScore,
+        })
+      }
     } else {
       this.setState({ 
         currentScore: this.state.currentScore +1,
@@ -82,7 +100,6 @@ class App extends Component {
         selectedImages: [...this.state.selectedImages, id],
       });
     }
-    console.log(this.state.highScore)
     this.shuffle(this.state.gameData);
     setTimeout(() => {
       this.setState({ classAnimation: "" });
@@ -95,7 +112,9 @@ class App extends Component {
   
       <Navbar
       currentScore={this.state.currentScore}
-      highScore={this.state.highScore}
+      highScore={this.state.difficulty === "Easy" ? this.state.EasyScore :
+                  this.state.difficulty === "Medium" ? this.state.MediumScore :
+                  this.state.difficulty === "Hard" ? this.state.HardScore : 0}
       />
 
       <Header 
@@ -103,6 +122,7 @@ class App extends Component {
       difficulty={this.state.difficulty}
       />
       
+
       <div className={`text-center ${this.state.classAnimation}`}>
           <h3 className="answer">{this.state.message}</h3>
       </div>
@@ -121,6 +141,8 @@ class App extends Component {
           })}
         </div>
       </div>
+
+      <Footer />
     </div>
     );
   }
