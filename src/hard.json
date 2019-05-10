@@ -33,34 +33,34 @@
     },
     {
         "id": "min9",
-        "image": "/images/hard/minions9.jpg"
+        "image": "./images/hard/minions9.jpg"
     },
     {
         "id": "min10",
-        "image": "/images/hard/minions10.jpg"
+        "image": "./images/hard/minions10.jpg"
     },
     {
         "id": "min11",
-        "image": "/images/hard/minions11.jpg"
+        "image": "./images/hard/minions11.jpg"
     },
     {
         "id": "min12",
-        "image": "/images/hard/minions12.jpg"
+        "image": "./images/hard/minions12.jpg"
     },
     {
         "id": "min13",
-        "image": "/images/hard/minions13.jpg"
+        "image": "./images/hard/minions13.jpg"
     },
     {
         "id": "min14",
-        "image": "/images/hard/minions14.jpg"
+        "image": "./images/hard/minions14.jpg"
     },
     {
         "id": "min15",
-        "image": "/images/hard/minions15.jpg"
+        "image": "./images/hard/minions15.jpg"
     },
     {
         "id": "min16",
-        "image": "/images/hard/minions16.jpg"
+        "image": "./images/hard/minions16.jpg"
     }
 ]
