@@ -1,5 +1,6 @@
 body {
-    background-image: url(./images/geometry.png);
+    background-image: url("/images/geometry.png");
+    background-color: #fafafa;
 }
 
 .App {

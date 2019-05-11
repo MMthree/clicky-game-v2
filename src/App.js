@@ -77,6 +77,7 @@ class App extends Component {
         selectedImages: [],
       });
 
+      // Store each mode's current score
       if (this.state.difficulty === "Easy") {
         this.setState({ 
           EasyScore: (this.state.currentScore > this.state.EasyScore) ? this.state.currentScore : this.state.EasyScore,
@@ -92,6 +93,7 @@ class App extends Component {
           HardScore: (this.state.currentScore > this.state.HardScore) ? this.state.currentScore : this.state.HardScore,
         })
       }
+
     } else {
       this.setState({ 
         currentScore: this.state.currentScore +1,
